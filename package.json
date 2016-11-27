@@ -1,0 +1,33 @@
+{
+  "name": "gym_backend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "async": "*",
+    "bcrypt": "^0.8.2",
+    "bluebird": "*",
+    "body-parser": "*",
+    "bookshelf": "*",
+    "ejs": "*",
+    "errorhandler": "*",
+    "express": "*",
+    "imagemagick": "*",
+    "jquery": "*",
+    "knex": "*",
+    "method-override": "^2.3.2",
+    "moment": "^2.10.2",
+    "multer": "^0.1.8",
+    "pg": "*",
+    "request": "*"
+  },
+  "author": "Paolo Conizzoli",
+  "license": "ISC"
+}
