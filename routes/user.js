@@ -36,7 +36,12 @@ UserController.create = function (req, res) {
 		res.status(200).json(result);
 	})
 	.catch(function (err) {
-		res.status(500).json(err);
+		// l'errore 23505 è una unique violation, quindi l'utente esiste già
+		if(err.code === '23505') {
+			res.status(200).json({status: 'ko', code: 1, message: 'Utente già registrato.'});
+		} else {
+			res.status(500).json(err);
+		}
 	});
 };
 
