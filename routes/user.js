@@ -29,7 +29,8 @@ UserController.create = function (req, res) {
 	.create({
 		name: req.body.name,
 		email: req.body.email.toLowerCase(),
-		password: hash
+		password: hash,
+		active: true
 	})
 	.then(function (result) {
 		res.status(200).json(result);
@@ -156,13 +157,16 @@ UserController.destroy = function (req, res) {
 		if (!user) {
 			res.status(404).json({});
 		} else {
-			user.destroy()
+			user
+			.save({
+				active: false
+			})
 			.then(function () {
 				res.status(200).json({});
 			})
 			.catch(function (err) {
 				res.status(500).json(err);
-			});
+			});			
 		}
 	})
 	.catch(function (err) {

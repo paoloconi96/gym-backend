@@ -9,7 +9,8 @@ var Schema = {
 		token: {type: 'string', nullable: true},
 		id_current_plan: {type: 'integer', nullable: true, references: 'plan.id'},
 		created_at: {type: 'dateTime', nullable: false},
-		updated_at: {type: 'dateTime', nullable: true}
+		updated_at: {type: 'dateTime', nullable: true},
+		active: {type: 'boolean', nullable: false}
 	},
 
 	plan: {
