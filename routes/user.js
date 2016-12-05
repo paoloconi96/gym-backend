@@ -33,7 +33,12 @@ UserController.create = function (req, res) {
 		active: true
 	})
 	.then(function (result) {
-		res.status(200).json(result);
+		var reply = {
+			id: result.id,
+			name: result.name,
+			email: result.email
+		}
+		res.status(200).json(reply);
 	})
 	.catch(function (err) {
 		// l'errore 23505 è una unique violation, quindi l'utente esiste già
@@ -78,7 +83,16 @@ UserController.login = function (req, res) {
 	})
 	.then(function (user) {
 		user = removePasswordFromUserData(user);
-		res.status(200).json(user);
+
+		var reply = {
+			id: user.id,
+			email: user.email,
+			name: user.name,
+			id_current_plan: user.id_current_plan,
+			token: user.token
+		}
+
+		res.status(200).json(reply);
 	})
 	.catch(function (err) {
 		res.status(400).json({error: err});
