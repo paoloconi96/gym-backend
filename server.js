@@ -38,13 +38,13 @@ Db.initialisation();
 
 Http.createServer(App).listen(3000);
 
-App.get("/users", AuthController.requireUser(), UserController.getAll);
-App.get("/users/:id", AuthController.requireUser(), UserController.getUser);
-App.post("/users", UserController.create);
-App.post("/users/login", UserController.login);
-App.post("/users/logout", AuthController.requireUser(), UserController.logout);
-App.put("/users/:id", AuthController.requireUser(), UserController.update);
-App.delete("/users/:id", UserController.destroy);
+App.get("/api/users", UserController.getAll);
+App.get("/api/users/:id", AuthController.requireUser(), UserController.getUser);
+App.post("/api/users", UserController.create);
+App.post("/api/users/login", UserController.login);
+App.post("/api/users/logout", AuthController.requireUser(), UserController.logout);
+App.put("/api/users/:id", AuthController.requireUser(), UserController.update);
+App.delete("/api/users/:id", UserController.destroy);
 
 // App.get("/categories", CategoryController.getAll);
 // App.get("/categories/:id", CategoryController.getCategory);
