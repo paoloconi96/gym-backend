@@ -7,7 +7,7 @@ var Knex = require("knex")({
 	connection: {
 		host: "localhost",
 		user: "paolo",
-		password: "",
+		password: "paolo",
 		database: "gym_base"
 	}
 });
