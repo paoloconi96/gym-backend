@@ -75,10 +75,10 @@ UserController.login = function (req, res) {
 					});
 				}
 			} else {
-				return Promise.reject("password-incorrect");
+				return res.status(200).json({status: 'ko', code: 10, message: 'Password errata.'});
 			}
 		} else {
-			return Promise.reject("user_not_found");
+			return res.status(200).json({status: 'ko', code: 11, message: 'Utente inesistente.'});
 		}
 	})
 	.then(function (user) {
@@ -95,7 +95,7 @@ UserController.login = function (req, res) {
 		res.status(200).json(reply);
 	})
 	.catch(function (err) {
-		res.status(400).json({error: err});
+		res.status(500).json({status: 'ko', message: err});
 	});
 };
 
