@@ -19,6 +19,26 @@ var User = Bookshelf.Model.extend({
 	tableName: "user",
 	hasTimestamps: true
 });
+
+var Exercise = Bookshelf.Model.extend({
+	tableName: "exercise",
+	hasTimestamps: true
+});
+
+var ExerciseType = Bookshelf.Model.extend({
+	tableName: "exercise_type",
+	hasTimestamps: true
+});
+
+var Plan = Bookshelf.Model.extend({
+	tableName: "plan",
+	hasTimestamps: true
+});
+
+
 exports.User = User;
+exports.Exercise = Exercise;
+exports.ExerciseType = ExerciseType;
+exports.Plan = Plan;
 
 exports.Bookshelf = Bookshelf;

@@ -13,6 +13,15 @@ var Schema = {
 		active: {type: 'boolean', nullable: false}
 	},
 
+	personal_info: {
+		id: {type: 'increments', nullable: false, primary: true},
+		id_user: {type: 'integer', nullable: false, references: 'user.id'},
+		weight: {type: 'numeric', precision: 5, scale: 2, nullable: true},
+		height: {type: 'numeric', precision: 3, scale: 2, nullable: true},
+		created_at: {type: 'dateTime', nullable: false},
+		updated_at: {type: 'dateTime', nullable: true},
+	},
+
 	plan: {
 		id: {type: 'increments', nullable: false, primary: true},
 		id_user: {type: 'integer', nullable: false, references: 'user.id'},
@@ -20,22 +29,22 @@ var Schema = {
 		updated_at: {type: 'dateTime', nullable: true}
 	},
 
-	excercise_type: {
+	exercise_type: {
 		id: {type: 'increments', nullable: false, primary: true},
 		title: {type: 'string', nullable: false, maxlength: 100},
 		type: {type: 'integer', nullable: false},
-		id_user: {type: 'integer', nullable: false, references: 'user.id'},
+		id_user: {type: 'integer', nullable: true, references: 'user.id'},
 		created_at: {type: 'dateTime', nullable: false},
 		updated_at: {type: 'dateTime', nullable: true}
 	},
 
 	exercise: {
 		id: {type: 'increments', nullable: false, primary: true},
-		length: {type: 'numeric', precision: 5, scale: 2},
-		weight: {type: 'integer'},
-		repetition: {type: 'integer'},
-		set_number: {type: 'integer'},
-		id_excercise_type: {type: 'integer', nullable: false, references: 'excercise_type.id'},
+		length: {type: 'numeric', precision: 5, scale: 2, nullable: true},
+		weight: {type: 'integer', nullable: true},
+		repetition: {type: 'integer', nullable: true},
+		set_number: {type: 'integer', nullable: true},
+		id_excercise_type: {type: 'integer', nullable: false, references: 'exercise_type.id'},
 		id_plan: {type: 'integer', nullable: false, references: 'plan.id'},
 		created_at: {type: 'dateTime', nullable: false},
 		updated_at: {type: 'dateTime', nullable: true}

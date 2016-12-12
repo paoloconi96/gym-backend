@@ -43,7 +43,7 @@ UserController.create = function (req, res) {
 	.catch(function (err) {
 		// l'errore 23505 è una unique violation, quindi l'utente esiste già
 		if(err.code === '23505') {
-			res.status(200).json({status: 'ko', code: 1, message: 'Utente già registrato.'});
+			res.status(200).json({status: 'ko', code: 1, message: 'Utente già registrato'});
 		} else {
 			res.status(500).json(err);
 		}
@@ -75,10 +75,10 @@ UserController.login = function (req, res) {
 					});
 				}
 			} else {
-				return res.status(200).json({status: 'ko', code: 10, message: 'Password errata.'});
+				return res.status(200).json({status: 'ko', code: 10, message: 'Password errata'});
 			}
 		} else {
-			return res.status(200).json({status: 'ko', code: 11, message: 'Utente inesistente.'});
+			return res.status(200).json({status: 'ko', code: 11, message: 'Utente inesistente'});
 		}
 	})
 	.then(function (user) {
