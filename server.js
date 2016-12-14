@@ -9,7 +9,8 @@ var Express = require("express"),
     Multer = require("multer"),
     Db = require("./database.js"),
     AuthController = require("./routes/auth.js"),
-    UserController = require("./routes/user.js");
+    UserController = require("./routes/user.js"),
+    PlanController = require("./routes/plan.js");
 
 App.use(Multer());
 App.use(MethodOverride());
@@ -38,6 +39,8 @@ Db.initialisation();
 
 Http.createServer(App).listen(3000);
 
+
+// Users
 App.get("/api/users", UserController.getAll);
 App.get("/api/users/:id", AuthController.requireUser(), UserController.getUser);
 App.post("/api/users", UserController.create);
@@ -45,6 +48,11 @@ App.post("/api/users/login", UserController.login);
 App.post("/api/users/logout", AuthController.requireUser(), UserController.logout);
 App.put("/api/users/:id", AuthController.requireUser(), UserController.update);
 App.delete("/api/users/:id", UserController.destroy);
+
+// Plan & excercise
+App.post("/api/plan/wh", AuthController.requireUser(), PlanController.setWeightHeight);
+
+
 
 // App.get("/categories", CategoryController.getAll);
 // App.get("/categories/:id", CategoryController.getCategory);

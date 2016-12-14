@@ -7,7 +7,7 @@ var Schema = {
 		name: {type: 'string', maxlength: 150, nullable: false},
 		password: {type: 'string', nullable: false},
 		token: {type: 'string', nullable: true},
-		id_current_plan: {type: 'integer', nullable: true, references: 'plan.id'},
+		id_current_plan_collection: {type: 'integer', nullable: true, references: 'plan_collection.id'},
 		created_at: {type: 'dateTime', nullable: false},
 		updated_at: {type: 'dateTime', nullable: true},
 		active: {type: 'boolean', nullable: false}
@@ -22,9 +22,18 @@ var Schema = {
 		updated_at: {type: 'dateTime', nullable: true},
 	},
 
-	plan: {
+	plan_collection: {
 		id: {type: 'increments', nullable: false, primary: true},
 		id_user: {type: 'integer', nullable: false, references: 'user.id'},
+		editing: {type: 'boolean', nullable: false}
+		created_at: {type: 'dateTime', nullable: false},
+		updated_at: {type: 'dateTime', nullable: true}
+	},
+
+	plan: {
+		id: {type: 'increments', nullable: false, primary: true},
+		id_plan_collection: {type: 'integer', nullable: false, references: 'plan_collection.id'},
+		title: {type: 'string', maxlength: 150, nullable: false},
 		created_at: {type: 'dateTime', nullable: false},
 		updated_at: {type: 'dateTime', nullable: true}
 	},

@@ -7,7 +7,7 @@ var Knex = require("knex")({
 	connection: {
 		host: "localhost",
 		user: "paolo",
-		password: "paolo",
+		password: "MACPAOLO",
 		database: "gym_base"
 	}
 });
@@ -17,6 +17,11 @@ Bookshelf.plugin("visibility");
 
 var User = Bookshelf.Model.extend({
 	tableName: "user",
+	hasTimestamps: true
+});
+
+var PersonalInfo = Bookshelf.Model.extend({
+	tableName: "personal_info",
 	hasTimestamps: true
 });
 
@@ -35,10 +40,17 @@ var Plan = Bookshelf.Model.extend({
 	hasTimestamps: true
 });
 
+var PlanCollection = Bookshelf.Model.extend({
+	tableName: "plan_collection",
+	hasTimestamps: true
+});
+
 
 exports.User = User;
+exports.PersonalInfo = PersonalInfo;
 exports.Exercise = Exercise;
 exports.ExerciseType = ExerciseType;
 exports.Plan = Plan;
+exports.PlanCollection = PlanCollection;
 
 exports.Bookshelf = Bookshelf;
