@@ -25,7 +25,7 @@ var Schema = {
 	plan_collection: {
 		id: {type: 'increments', nullable: false, primary: true},
 		id_user: {type: 'integer', nullable: false, references: 'user.id'},
-		editing: {type: 'boolean', nullable: false}
+		editing: {type: 'boolean', nullable: false},
 		created_at: {type: 'dateTime', nullable: false},
 		updated_at: {type: 'dateTime', nullable: true}
 	},
@@ -53,7 +53,7 @@ var Schema = {
 		weight: {type: 'integer', nullable: true},
 		repetition: {type: 'integer', nullable: true},
 		set_number: {type: 'integer', nullable: true},
-		id_excercise_type: {type: 'integer', nullable: false, references: 'exercise_type.id'},
+		id_exercise_type: {type: 'integer', nullable: false, references: 'exercise_type.id'},
 		id_plan: {type: 'integer', nullable: false, references: 'plan.id'},
 		created_at: {type: 'dateTime', nullable: false},
 		updated_at: {type: 'dateTime', nullable: true}

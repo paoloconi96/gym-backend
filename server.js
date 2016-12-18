@@ -51,6 +51,9 @@ App.delete("/api/users/:id", UserController.destroy);
 
 // Plan & excercise
 App.post("/api/plan/wh", AuthController.requireUser(), PlanController.setWeightHeight);
+App.post("/api/plan", AuthController.requireUser(), PlanController.createPlan);
+App.post("/api/plan/:plan_id/excercise", AuthController.requireUser(), PlanController.createExercise);
+App.put("/api/plan", AuthController.requireUser(), PlanController.toggleEditing);
 
 
 
